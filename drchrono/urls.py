@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^welcome/$', views.DoctorWelcome.as_view(), name='welcome'),
     url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^main/$', TemplateView.as_view(template_name="index.html")),
     url(r'', include('social.apps.django_app.urls', namespace='social')),
 ]
 

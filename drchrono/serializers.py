@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from rest_framework.serializers import (
     CharField,
     IntegerField,
