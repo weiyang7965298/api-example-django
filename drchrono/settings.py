@@ -27,7 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 # Application definition
 
 INSTALLED_APPS = (
@@ -118,8 +128,8 @@ STATIC_URL = '/static/'
 # 3.2) change your hostname if you're using a different way to access this kiosk; by default it'll run on localhost:8080
 # 4) copy your CLIENT_ID and SECRET keys into a file docker/environment. See the example
 # 5) Ask a dev if this doesn't work quickly; these settings can be fiddly, and we'd rather not wast time with them.
-SOCIAL_AUTH_DRCHRONO_KEY = os.getenv('SOCIAL_AUTH_CLIENT_ID')
-SOCIAL_AUTH_DRCHRONO_SECRET = os.getenv('SOCIAL_AUTH_SECRET')
+SOCIAL_AUTH_DRCHRONO_KEY = 'NIkL4inWOFQpZhko2796SyT1xP5OWccW5f9FUziJ'
+SOCIAL_AUTH_DRCHRONO_SECRET = 'xvcVhxiHTLljmjhddX0FzFqivAfmVU3C3v1ZNuU9LtRi86h0vvXnYlrZybfAla2O4nC7yzNp0v9Pz4aphJowUZmtUTZJdqoGXcmTccMFHGckdqgbwlOO4MwX4Jo9xMtf'
 
 
 LOGIN_REDIRECT_URL = '/welcome/'
